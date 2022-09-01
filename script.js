@@ -1,45 +1,27 @@
 /*Урок 11*/
-const btn = document.getElementById("btn");
-const text = document.getElementById("text");
-
-// const button = document.querySelector('#e_btn')
-// const circle = document.querySelector('#circle')
-const square = document.querySelector('square')
-
-const range = document.getElementById("range");
-const span = document.getElementById("range-span");
-const circle = document.getElementById('circle');
-
-
 const eBtn = document.getElementById('e_btn');
-eBtn.style="display: none;" //пункт 2 домашки
+eBtn.style = "display: none;"
+//------------------------------------------------------------
 
+const btn = document.getElementById('btn');
+const text = document.getElementById('text');
+const square = document.getElementById('square');
+const range = document.getElementById('range');
+let span = document.getElementById('range-span');
+const circle = document.getElementById('circle');
+span.textContent = '50%';
+btn.addEventListener('click', function () {
+    square.style.background = `${text.value}`;
+    text.value = ''
+});
 
-
-
-const logger = function (event) {
-  console.log(event.type);
-  span.textContent = event.target.value
+const rangeSpan = function (val) {
+    span.textContent = val + "%";
+    circle.style.height = `${val}%`;
+    circle.style.width = `${val}%`;
 }
-range.addEventListener('input', logger);
-range.addEventListener('change', logger); //пункт 3 домашки
-
-range.textContent = range.value + "%";
-range.style.width = range.value + "%";
-
-
-
-button.onclick = function () {
-  alert("Клик по кнопке!");
-};
-
-
-const toggler = function (event) {
-  console.log(event.target);
-  event.target.classList.toggle('green')
-}
-
-button.addEventListener('click', toggler);
-circle.addEventListener('click', toggler);
-square.addEventListener('click', toggler);
-
+//-------------------------------------------------------------
+rangeSpan(50);
+range.addEventListener('input', function (e) {
+    rangeSpan(e.target.value)
+});
