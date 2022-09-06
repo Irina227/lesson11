@@ -9,6 +9,7 @@ const square = document.getElementById('square');
 const range = document.getElementById('range');
 let span = document.getElementById('range-span');
 const circle = document.getElementById('circle');
+
 span.textContent = '50%';
 btn.addEventListener('click', function () {
     square.style.background = `${text.value}`;
